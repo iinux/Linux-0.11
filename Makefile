@@ -69,25 +69,25 @@ tools/system:	boot/head.o init/main.o \
 	-o tools/system 
 	@nm tools/system | grep -v '\(compiled\)\|\(\.o$$\)\|\( [aU] \)\|\(\.\.ng$$\)\|\(LASH[RL]DI\)'| sort > System.map 
 
-kernel/math/math.a:
+kernel/math/math.a: kernel/math
 	@make -C kernel/math
 
-kernel/blk_drv/blk_drv.a:
+kernel/blk_drv/blk_drv.a: kernel/blk_drv
 	@make -C kernel/blk_drv
 
-kernel/chr_drv/chr_drv.a:
+kernel/chr_drv/chr_drv.a: kernel/chr_drv
 	@make -C kernel/chr_drv
 
-kernel/kernel.o:
+kernel/kernel.o: kernel
 	@make -C kernel
 
-mm/mm.o:
+mm/mm.o: mm
 	@make -C mm
 
-fs/fs.o:
+fs/fs.o: fs
 	@make -C fs
 
-lib/lib.a:
+lib/lib.a: lib
 	@make -C lib
 
 boot/setup: boot/setup.s
